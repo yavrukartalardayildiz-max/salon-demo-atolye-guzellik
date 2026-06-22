@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATÖLYE Güzellik &amp; Gelin — Kadıköy | Saç, Makyaj, Gelin Paketi</title>
+  <meta name="description" content="ATÖLYE Güzellik & Gelin, Kadıköy'de saç & makyaj, gelin paketi, kalıcı makyaj, ipek kirpik, cilt bakımı ve manikür hizmetleri sunan sıcak lüks güzellik merkezi. Özel gününüz için randevu alın." />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ATÖLYE Güzellik & Gelin — Kadıköy" />
+  <meta property="og:description" content="Özel gününüz için sıcak lüks güzellik merkezi. Gelin paketi, saç & makyaj, kalıcı makyaj, ipek kirpik. Kadıköy." />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:site_name" content="ATÖLYE Güzellik & Gelin" />
+  <meta name="theme-color" content="#2E4034" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#141B16" media="(prefers-color-scheme: dark)" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ATÖLYE Güzellik & Gelin — Kadıköy" />
+  <meta name="twitter:description" content="Özel gününüz için sıcak lüks güzellik merkezi. Gelin paketi, saç & makyaj, kalıcı makyaj, ipek kirpik." />
+
+  <!-- Emoji favicon (data-uri) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💐</text></svg>" />
+
+  <!-- Google Fonts: warm serif display + clean sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD LocalBusiness (placeholder data — operatör güncelleyecek) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "ATÖLYE Güzellik & Gelin",
+    "image": "",
+    "description": "Kadıköy'de saç & makyaj, gelin paketi, kalıcı makyaj, ipek kirpik, cilt bakımı ve manikür hizmetleri sunan sıcak lüks güzellik merkezi.",
+    "@id": "",
+    "url": "",
+    "telephone": "+90-555-000-0000",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Caferağa Mah. (örnek adres)",
+      "addressLocality": "Kadıköy",
+      "addressRegion": "İstanbul",
+      "postalCode": "34710",
+      "addressCountry": "TR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": "40.9876", "longitude": "29.0270" },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "10:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "18:00" }
+    ],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "120" }
+  }
+  </script>
+
+  <!-- ===================== SELF-CONTAINED CSS (no Tailwind, no FOUC) ===================== -->
+  <style>
+  /* ---------- design tokens ---------- */
+  :root {
+    --terracotta: #B5562F;
+    --terradark:  #94401F;
+    --forest:     #2E4034;
+    --forestdeep: #1F2C24;
+    --ivory:      #F6F0E6;
+    --ivorydeep:  #EFE6D5;
+    --gold:       #C9A24A;
+    --goldsoft:   #D9BC78;
+
+    /* semantic (light) */
+    --bg:        var(--ivory);
+    --bg-alt:    var(--ivorydeep);
+    --surface:   rgba(255,255,255,0.70);
+    --surface-2: rgba(255,255,255,0.55);
+    --ink:       var(--forest);
+    --ink-soft:  rgba(46,64,52,0.72);
+    --ink-mute:  rgba(46,64,52,0.55);
+    --line:      rgba(46,64,52,0.10);
+    --line-soft: rgba(46,64,52,0.06);
+    --accent:    var(--terracotta);
+    --accent-ink: var(--ivory);
+
+    --shadow-card: 0 24px 50px -28px rgba(46,64,52,0.45);
+    --shadow-soft: 0 10px 30px -18px rgba(46,64,52,0.35);
+    --radius:   28px;
+    --radius-sm:16px;
+
+    --maxw: 1200px;
+    --pad: clamp(1.25rem, 4vw, 2rem);
+
+    --display: 'Fraunces', Georgia, serif;
+    --serif:   'Cormorant Garamond', Georgia, serif;
+    --sans:    'Jost', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+    --t: cubic-bezier(.2,.8,.2,1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:        #141B16;
+      --bg-alt:    #19221C;
+      --surface:   rgba(255,255,255,0.045);
+      --surface-2: rgba(255,255,255,0.03);
+      --ink:       #ECE3D2;
+      --ink-soft:  rgba(236,227,210,0.74);
+      --ink-mute:  rgba(236,227,210,0.52);
+      --line:      rgba(236,227,210,0.12);
+      --line-soft: rgba(236,227,210,0.06);
+      --accent:    #D06A40;
+      --accent-ink:#15110D;
+      --gold:      #DCBB68;
+      --goldsoft:  #E6CE8C;
+      --shadow-card: 0 28px 60px -30px rgba(0,0,0,0.7);
+      --shadow-soft: 0 14px 36px -22px rgba(0,0,0,0.6);
+    }
+  }
+
+  /* ---------- reset / base ---------- */
+  *,*::before,*::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-weight: 400; line-height: 1.6;
+    overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+  ::selection { background: var(--terracotta); color: #fff; }
+
+  /* Lenis */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
+
+  /* ---------- typography helpers ---------- */
+  .font-display { font-family: var(--display); font-weight: 300; }
+  .font-serif   { font-family: var(--serif); }
+  .italic { font-style: italic; }
+
+  h1,h2,h3 { margin: 0; font-family: var(--display); font-weight: 300; line-height: 1.08; text-wrap: balance; letter-spacing: -0.012em; }
+  .lead, .sec-head p, .gelin-lead { text-wrap: pretty; }
+  .eyebrow {
+    font-size: clamp(.66rem, 1.6vw, .74rem); letter-spacing: .35em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500; margin: 0 0 1rem;
+    display: inline-flex; align-items: center; gap: .7rem;
+  }
+  .eyebrow .bar { width: 2rem; height: 1px; background: linear-gradient(90deg, var(--gold), var(--goldsoft)); }
+  .h2 { font-size: clamp(2rem, 5.2vw, 3.1rem); }
+  .lead { color: var(--ink-soft); font-size: clamp(1rem, 2.2vw, 1.12rem); line-height: 1.7; }
+  .swash { font-family: var(--serif); font-style: italic; color: var(--accent); display: block; }
+
+  /* ---------- layout ---------- */
+  .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad); }
+  section { padding-block: clamp(4.5rem, 10vw, 8rem); position: relative; }
+  .bg-alt { background: var(--bg-alt); }
+
+  /* ---------- skip nav ---------- */
+  .skip {
+    position: fixed; left: 50%; top: .5rem; transform: translate(-50%,-160%);
+    background: var(--forest); color: var(--ivory); padding: .7rem 1.2rem; border-radius: 999px;
+    z-index: 200; font-size: .9rem; transition: transform .25s var(--t);
+  }
+  .skip:focus { transform: translate(-50%,0); }
+
+  /* ---------- focus ring ---------- */
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 8px;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    --bbg: var(--accent); --bink: var(--accent-ink);
+    position: relative; overflow: hidden; isolation: isolate;
+    display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+    background: var(--bbg); color: var(--bink);
+    padding: 1rem 2rem; border-radius: 999px; border: 0;
+    font-weight: 500; letter-spacing: .01em; line-height: 1;
+    transition: transform .35s var(--t), box-shadow .35s var(--t), background-color .35s;
+    box-shadow: 0 12px 30px -16px rgba(181,86,47,0.6);
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -16px rgba(181,86,47,0.7); }
+  .btn:active { transform: translateY(0) scale(.985); }
+  .btn::before {
+    content: ""; position: absolute; inset: 0; left: -120%; width: 55%; z-index: -1;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.28), transparent);
+    transform: skewX(-18deg); transition: left .6s ease;
+  }
+  .btn:hover::before { left: 150%; }
+  .btn-gold { --bbg: var(--gold); --bink: var(--forestdeep); box-shadow: 0 12px 30px -16px rgba(201,162,74,0.6); font-weight: 600; }
+  .btn-ghost {
+    background: transparent; color: var(--ink); border: 1px solid var(--line);
+    box-shadow: none;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--accent); transform: translateY(-2px); box-shadow: none; }
+  .btn-ghost::before { display: none; }
+
+  .link-underline {
+    background-image: linear-gradient(var(--gold), var(--gold));
+    background-size: 0% 1.5px; background-repeat: no-repeat; background-position: left bottom;
+    transition: background-size .35s ease;
+  }
+  .link-underline:hover { background-size: 100% 1.5px; }
+
+  /* ---------- decorative ---------- */
+  .gold-rule { height: 1px; background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent); }
+  .gold-line { height: 1px; background: linear-gradient(90deg, var(--gold), var(--goldsoft)); }
+
+  .weave::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(201,162,74,0.05) 0 1px, transparent 1px 9px),
+      repeating-linear-gradient(-45deg, rgba(46,64,52,0.04) 0 1px, transparent 1px 9px);
+    mix-blend-mode: multiply; opacity: .7;
+  }
+  @media (prefers-color-scheme: dark) { .weave::before { mix-blend-mode: screen; opacity: .35; } }
+
+  .arc { position: absolute; opacity: .28; color: var(--gold); pointer-events: none; }
+  @media (prefers-color-scheme: dark) { .arc { opacity: .18; } }
+
+  /* ---------- navbar ---------- */
+  header.nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 100;
+    transition: background-color .4s, box-shadow .4s, backdrop-filter .4s, border-color .4s;
+    border-bottom: 1px solid transparent;
+  }
+  header.nav.solid {
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-soft); border-bottom-color: var(--line-soft);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { display: inline-flex; align-items: center; gap: .7rem; }
+  .brand .mark {
+    width: 38px; height: 38px; display: grid; place-items: center; border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--gold) 70%, transparent); color: var(--gold); font-size: 1.05rem;
+    transition: transform .4s var(--t);
+  }
+  .brand:hover .mark { transform: rotate(14deg); }
+  .brand .name { font-family: var(--display); font-size: 1.2rem; letter-spacing: .02em; color: var(--ink); }
+  .brand .name .dot { color: var(--accent); }
+  .brand .name .sub { font-family: var(--serif); font-style: italic; font-size: .9rem; }
+  .nav-links { display: none; gap: 2rem; list-style: none; margin: 0; padding: 0; font-size: .9rem; }
+  .nav-links a { color: var(--ink-soft); }
+  .nav-cta { display: none; }
+  .burger {
+    display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 999px;
+    background: transparent; border: 1px solid var(--line); color: var(--ink);
+  }
+  @media (min-width: 1024px) {
+    .nav-links { display: flex; }
+    .nav-cta { display: inline-flex; }
+    .burger { display: none; }
+  }
+
+  /* ---------- mobile menu ---------- */
+  .mm { position: fixed; inset: 0; z-index: 120; display: none; }
+  .mm.open { display: block; }
+  .mm-backdrop { position: absolute; inset: 0; background: rgba(20,27,22,0.6); backdrop-filter: blur(3px); }
+  .mm-panel {
+    position: absolute; right: 0; top: 0; height: 100%; width: 84%; max-width: 360px;
+    background: var(--bg); box-shadow: -20px 0 60px -20px rgba(0,0,0,.5);
+    transform: translateX(100%); transition: transform .45s var(--t);
+    display: flex; flex-direction: column;
+  }
+  .mm.open .mm-panel { transform: translateX(0); }
+  .mm-head { display: flex; align-items: center; justify-content: space-between; height: 72px; padding-inline: 1.5rem; border-bottom: 1px solid var(--line); }
+  .mm-list { list-style: none; margin: 0; padding: 1.5rem; display: flex; flex-direction: column; gap: .2rem; }
+  .mm-list a { display: block; padding: .9rem 0; font-family: var(--display); font-size: 1.25rem; border-bottom: 1px solid var(--line-soft); color: var(--ink); }
+  .mm-foot { margin-top: auto; padding: 1.5rem; }
+  .mm-x { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    min-height: 100svh; display: flex; align-items: center; overflow: hidden; position: relative;
+    background:
+      radial-gradient(120% 90% at 8% 12%, color-mix(in srgb, var(--goldsoft) 40%, transparent) 0%, transparent 45%),
+      radial-gradient(110% 100% at 92% 0%, color-mix(in srgb, var(--terracotta) 42%, transparent) 0%, transparent 50%),
+      radial-gradient(140% 120% at 70% 110%, color-mix(in srgb, var(--forest) 50%, transparent) 0%, transparent 55%),
+      linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 38%, color-mix(in srgb, var(--bg-alt) 80%, var(--gold)) 100%);
+  }
+  @media (prefers-color-scheme: dark) {
+    .hero {
+      background:
+        radial-gradient(120% 90% at 8% 12%, rgba(220,187,104,0.16) 0%, transparent 45%),
+        radial-gradient(110% 100% at 92% 0%, rgba(208,106,64,0.22) 0%, transparent 50%),
+        radial-gradient(140% 120% at 70% 110%, rgba(0,0,0,0.5) 0%, transparent 55%),
+        linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 60%, #0F140F 100%);
+    }
+  }
+  .hero-inner { padding-block: clamp(7rem, 14vh, 9rem) clamp(4rem, 8vh, 6rem); width: 100%; }
+  .hero-content { max-width: 760px; }
+  .hero h1 {
+    font-size: clamp(2.6rem, 8.5vw, 5rem); line-height: 1.04; color: var(--ink); margin-top: .4rem;
+  }
+  .hero h1 .swash { font-size: 1em; margin-top: .1em; }
+  .hero .lead { margin-top: 1.6rem; max-width: 38rem; }
+  .hero-cta { margin-top: 2.1rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+
+  /* trust signal row (above the fold) */
+  .trust {
+    margin-top: 2.6rem; display: flex; flex-wrap: wrap; align-items: center; gap: .65rem 1.4rem;
+    font-size: .92rem; color: var(--ink-soft);
+  }
+  .trust .item { display: inline-flex; align-items: center; gap: .5rem; }
+  .trust .stars { color: var(--gold); letter-spacing: .05em; }
+  .trust .rate { color: var(--ink); font-weight: 600; }
+  .trust .sep { width: 1px; height: 1.1rem; background: var(--line); display: none; }
+  @media (min-width:640px){ .trust .sep { display: inline-block; } }
+
+  .scroll-hint {
+    position: absolute; bottom: 1.6rem; left: 50%; transform: translateX(-50%);
+    color: var(--ink-mute); font-size: .68rem; letter-spacing: .3em; text-transform: uppercase;
+    display: flex; flex-direction: column; align-items: center; gap: .5rem;
+  }
+  .scroll-hint .chev { animation: bob 1.8s var(--t) infinite; }
+  @keyframes bob { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(5px);} }
+
+  /* kinetic hero stagger */
+  .kin { display: inline-block; }
+  html.gsap-on .hero h1 .kin { opacity: 0; transform: translateY(40px); }
+  html.gsap-on [data-rise] { opacity: 0; transform: translateY(26px); }
+
+  /* ---------- HERO PHOTO LAYER (real photo over gradient; gradient stays if 404) ---------- */
+  /* layers below content; gradient lives on .hero itself (never removed) */
+  .hero-media { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .hero-photo {
+    position: absolute; inset: 0;
+    background-image: url('img/hero.jpg');
+    background-size: cover; background-position: center;
+    /* if the file is missing the element is simply empty → gradient shows through */
+    opacity: .82;
+  }
+  @media (prefers-color-scheme: dark) { .hero-photo { opacity: .64; } }
+  /* readability scrim so text stays crisp regardless of photo */
+  .hero-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(105deg, color-mix(in srgb, var(--bg) 78%, transparent) 0%, color-mix(in srgb, var(--bg) 40%, transparent) 45%, transparent 78%),
+      linear-gradient(0deg, color-mix(in srgb, var(--bg) 55%, transparent), transparent 40%);
+  }
+  /* keep hero text/content above media */
+  .hero .wrap, .hero .scroll-hint { position: relative; z-index: 3; }
+  /* parallax decor wrapper (only transformed on desktop via JS) */
+  .hero-parallax { position: absolute; inset: -8% 0 0 0; z-index: 1; will-change: transform; }
+
+  /* ---------- SÜZÜLEN PETALLER (falling petals) ---------- */
+  .petals {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden;
+    contain: strict;
+  }
+  /* pause all petal animation when hero is off-screen (saves CPU/battery) */
+  .hero.decor-idle .petal { animation-play-state: paused; }
+  .petal {
+    position: absolute; top: -8%; left: 0;
+    width: 14px; height: 14px;
+    opacity: 0; will-change: transform, opacity;
+    /* soft rounded petal shape via border-radius asymmetry */
+    border-radius: 76% 24% 70% 30% / 60% 56% 44% 40%;
+    background: linear-gradient(140deg, var(--goldsoft), var(--terracotta));
+    filter: drop-shadow(0 2px 4px rgba(46,64,52,0.12));
+    animation: petal-fall linear infinite;
+  }
+  .petal.p-ivory { background: linear-gradient(140deg, #FBF4E7, var(--goldsoft)); }
+  .petal.p-gold  { background: linear-gradient(140deg, var(--gold), var(--goldsoft)); }
+  .petal.p-terra { background: linear-gradient(140deg, var(--terracotta), var(--terradark)); }
+  @keyframes petal-fall {
+    0%   { transform: translate3d(0, -10vh, 0) rotate(0deg); opacity: 0; }
+    8%   { opacity: .9; }
+    50%  { transform: translate3d(2.2vw, 52vh, 0) rotate(180deg); opacity: .85; }
+    90%  { opacity: .55; }
+    100% { transform: translate3d(-1.6vw, 112vh, 0) rotate(360deg); opacity: 0; }
+  }
+
+  /* ---------- İMLEÇ-TAKİP IŞILTI (cursor glow — single element) ---------- */
+  .cursor-glow {
+    position: absolute; top: 0; left: 0; z-index: 2;
+    width: 520px; height: 520px; margin: -260px 0 0 -260px;
+    border-radius: 999px; pointer-events: none;
+    opacity: 0; will-change: transform, opacity;
+    transition: opacity .5s var(--t);
+    background: radial-gradient(circle at center,
+      color-mix(in srgb, var(--goldsoft) 55%, transparent) 0%,
+      color-mix(in srgb, var(--terracotta) 22%, transparent) 32%,
+      transparent 66%);
+    mix-blend-mode: soft-light;
+  }
+  @media (prefers-color-scheme: dark) { .cursor-glow { mix-blend-mode: screen; } }
+  .hero.glow-live .cursor-glow { opacity: .9; }
+
+  /* ---------- GALLERY PHOTO LAYER (real photos over gradient; fallback stays) ---------- */
+  .tile .photo {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-size: cover; background-position: center;
+    transition: transform .7s var(--t);
+  }
+  /* if image 404s, .photo is transparent → gradient (.tile-N background) shows through */
+  .tile:hover .photo { transform: scale(1.07); }
+  .tile-1 .photo { background-image: url('img/g1.jpg'); }
+  .tile-2 .photo { background-image: url('img/g2.jpg'); }
+  .tile-3 .photo { background-image: url('img/g3.jpg'); }
+  .tile-4 .photo { background-image: url('img/g4.jpg'); }
+  /* photo sits at z0 (below the existing ::after gradient z1 and span z2) */
+
+  /* ---------- social proof band ---------- */
+  .proof {
+    margin-top: clamp(-3rem, -6vw, -4rem); position: relative; z-index: 5;
+  }
+  .proof-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow-card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding: clamp(1.4rem, 3vw, 2rem) clamp(1.4rem, 4vw, 2.5rem);
+    display: grid; gap: 1.4rem 2rem; grid-template-columns: 1fr;
+    text-align: center;
+  }
+  @media (min-width: 760px) { .proof-card { grid-template-columns: repeat(4, 1fr); text-align: left; } }
+  .proof-item .num { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.1rem); color: var(--ink); line-height: 1; }
+  .proof-item .num .star { color: var(--gold); }
+  .proof-item .label { color: var(--ink-mute); font-size: .82rem; margin-top: .4rem; letter-spacing: .02em; }
+  .proof-item + .proof-item { border-top: 1px solid var(--line-soft); padding-top: 1.4rem; }
+  @media (min-width: 760px) {
+    .proof-item + .proof-item { border-top: 0; border-left: 1px solid var(--line-soft); padding-top: 0; padding-left: 2rem; }
+  }
+
+  /* ---------- section heading block ---------- */
+  .sec-head { max-width: 40rem; margin-bottom: clamp(2.5rem, 6vw, 3.5rem); }
+  .sec-head.split { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1.5rem; max-width: none; }
+
+  /* ---------- BENTO services grid ---------- */
+  .bento {
+    display: grid; gap: clamp(.9rem, 2vw, 1.3rem);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) {
+    .bento {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 1fr;
+    }
+    .bento .feature { grid-column: span 1; grid-row: span 2; }
+    .bento .wide { grid-column: span 2; }
+  }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: clamp(1.5rem, 3vw, 1.9rem);
+    transition: transform .5s var(--t), box-shadow .5s var(--t), border-color .5s;
+    display: flex; flex-direction: column;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-card); border-color: color-mix(in srgb, var(--gold) 45%, transparent); }
+  .card .ico {
+    width: 48px; height: 48px; display: grid; place-items: center; border-radius: 14px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent);
+    font-size: 1.35rem; margin-bottom: 1.1rem;
+    transition: transform .5s var(--t), background-color .5s;
+  }
+  .card:hover .ico { transform: translateY(-3px) scale(1.06) rotate(-3deg); background: color-mix(in srgb, var(--accent) 18%, transparent); }
+  /* the gold rule "draws in" on hover for a tactile premium touch */
+  .card .gold-rule { background-size: 100% 100%; transition: opacity .5s var(--t); opacity: .7; }
+  .card:hover .gold-rule { opacity: 1; }
+  .card h3 { font-family: var(--display); font-size: clamp(1.3rem, 3vw, 1.55rem); color: var(--ink); margin-bottom: .5rem; }
+  .card p { color: var(--ink-soft); font-size: .94rem; line-height: 1.65; margin: 0 0 1.2rem; }
+  .card .price { margin-top: auto; font-size: .9rem; color: var(--accent); font-weight: 500; }
+  .card .gold-rule { margin-bottom: 1rem; }
+
+  /* feature card (gelin) — dark depth */
+  .card.feature {
+    background: linear-gradient(160deg, var(--forest), var(--forestdeep));
+    color: var(--ivory); border-color: color-mix(in srgb, var(--gold) 30%, transparent);
+    position: relative; overflow: hidden;
+  }
+  @media (prefers-color-scheme: dark) { .card.feature { background: linear-gradient(160deg, #243029, #161E18); } }
+  .card.feature h3 { color: var(--ivory); }
+  .card.feature p { color: rgba(246,240,230,0.74); }
+  .card.feature .ico { background: color-mix(in srgb, var(--gold) 22%, transparent); color: var(--gold); }
+  .card.feature .price { color: var(--gold); }
+  .badge {
+    position: absolute; top: 1rem; right: 1rem; font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
+    background: var(--gold); color: var(--forestdeep); padding: .35rem .8rem; border-radius: 999px; font-weight: 700;
+  }
+  .card.feature .gold-rule { background: linear-gradient(90deg, transparent, rgba(201,162,74,.5), transparent); }
+
+  /* ---------- gelin section ---------- */
+  .gelin-sec { background: linear-gradient(165deg, var(--forest), var(--forestdeep)); color: var(--ivory); overflow: hidden; }
+  @media (prefers-color-scheme: dark) { .gelin-sec { background: linear-gradient(165deg, #1B241D, #11160F); } }
+  .gelin-sec .eyebrow { color: var(--gold); }
+  .gelin-sec h2 { color: var(--ivory); }
+  .gelin-sec .swash { color: var(--goldsoft); }
+  .gelin-grid { display: grid; gap: clamp(2.5rem, 6vw, 4rem); align-items: center; grid-template-columns: 1fr; }
+  @media (min-width: 1000px) { .gelin-grid { grid-template-columns: 1.05fr .95fr; } }
+  .gelin-lead { color: rgba(246,240,230,0.78); max-width: 32rem; margin-top: 1.4rem; }
+  .feat-list { list-style: none; margin: 2rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 1.3rem; }
+  .feat-list li { display: flex; gap: 1rem; }
+  .feat-list .mk { color: var(--gold); margin-top: .2rem; flex-shrink: 0; }
+  .feat-list b { font-family: var(--display); font-size: 1.1rem; display: block; }
+  .feat-list p { color: rgba(246,240,230,0.66); font-size: .9rem; margin: .25rem 0 0; }
+  .gelin-cta { margin-top: 2.4rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+  .gelin-cta .btn-ghost { color: var(--ivory); border-color: rgba(246,240,230,0.3); }
+  .gelin-cta .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* bridal panel */
+  .bridal {
+    position: relative;
+  }
+  .bridal .panel {
+    aspect-ratio: 4/5; border-radius: 32px; overflow: hidden; position: relative;
+    display: grid; place-items: center; text-align: center; padding: 2rem;
+    background: linear-gradient(140deg, var(--goldsoft), var(--gold) 55%, var(--terracotta));
+  }
+  .bridal .panel .quote { position: relative; z-index: 2; }
+  .bridal .panel .emoji { font-size: 3.4rem; margin-bottom: 1rem; }
+  .bridal .panel .quote p { font-family: var(--serif); font-style: italic; font-size: clamp(1.2rem, 3vw, 1.5rem); color: var(--forestdeep); margin: 0; }
+  .bridal .tag {
+    position: absolute; bottom: -1.4rem; right: -.5rem;
+    background: var(--bg); color: var(--ink); border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+    border-radius: 18px; padding: 1rem 1.4rem; box-shadow: var(--shadow-card);
+  }
+  .bridal .tag .big { font-family: var(--display); font-size: 1.4rem; }
+  .bridal .tag .small { font-size: .72rem; color: var(--ink-mute); letter-spacing: .02em; }
+
+  /* ---------- neden biz (4-up) ---------- */
+  .quad { display: grid; gap: clamp(.9rem, 2vw, 1.3rem); grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .quad { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .quad { grid-template-columns: repeat(4, 1fr); } }
+  .quad .card .emoji { font-size: 1.9rem; margin-bottom: 1rem; }
+  .quad .card h3 { font-size: 1.2rem; }
+  .quad .card p { margin: 0; }
+
+  /* ---------- gallery ---------- */
+  .gallery { display: grid; gap: clamp(.6rem, 1.5vw, 1rem); grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 1000px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+  .tile {
+    position: relative; overflow: hidden; border-radius: 20px; aspect-ratio: 1/1;
+    transition: transform .5s var(--t), box-shadow .5s var(--t);
+  }
+  @media (min-width: 640px) { .tile { aspect-ratio: 4/5; } }
+  .tile:hover { transform: translateY(-5px); box-shadow: var(--shadow-card); }
+  .tile::before { content:""; position:absolute; inset:-2px; background: inherit; transition: transform .7s var(--t); z-index:0; }
+  .tile:hover::before { transform: scale(1.07); }
+  .tile::after { content:""; position:absolute; inset:0; background: linear-gradient(180deg, transparent 52%, rgba(31,44,36,0.6)); transition: background .5s; z-index:1; }
+  .tile:hover::after { background: linear-gradient(180deg, rgba(31,44,36,0.1) 0%, rgba(31,44,36,0.66) 100%); }
+  .tile span { position: absolute; bottom: 1rem; left: 1rem; z-index: 2; font-family: var(--display); font-size: .95rem; color: rgba(246,240,230,0.95); transition: transform .5s var(--t); }
+  .tile:hover span { transform: translateY(-3px); }
+  .tile-1 { background: linear-gradient(140deg, var(--terracotta), var(--terradark) 70%, var(--forest)); }
+  .tile-2 { background: linear-gradient(140deg, var(--forest), var(--forestdeep) 60%, var(--gold)); }
+  .tile-3 { background: linear-gradient(140deg, var(--goldsoft), var(--gold) 55%, var(--terracotta)); }
+  .tile-3 span { color: var(--forestdeep); }
+  .tile-4 { background: linear-gradient(140deg, var(--ivorydeep), var(--goldsoft) 60%, var(--forest)); }
+  .tile-4 span { color: var(--forestdeep); }
+  .tile-5 { background: linear-gradient(140deg, var(--terradark), var(--terracotta) 50%, var(--goldsoft)); }
+  .tile-6 { background: linear-gradient(140deg, var(--forestdeep), var(--forest) 55%, var(--gold)); }
+  .note {
+    font-size: .85rem; color: var(--ink-mute); max-width: 18rem; border-left: 2px solid var(--gold); padding-left: 1rem;
+  }
+
+  /* ---------- reviews ---------- */
+  .reviews-sec { background: var(--forestdeep); color: var(--ivory); overflow: hidden; }
+  @media (prefers-color-scheme: dark) { .reviews-sec { background: #10160F; } }
+  .reviews-sec .eyebrow { color: var(--gold); }
+  .reviews-sec h2 { color: var(--ivory); }
+  .reviews-sec .swash { color: var(--goldsoft); }
+  .reviews-sec .sub { color: rgba(246,240,230,0.55); font-size: .9rem; margin-top: 1rem; }
+  .review-grid { display: grid; gap: clamp(.9rem, 2vw, 1.3rem); grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .review-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .review-grid { grid-template-columns: repeat(3, 1fr); } }
+  .review {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(246,240,230,0.1); border-radius: var(--radius);
+    padding: clamp(1.5rem, 3vw, 1.9rem); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    transition: transform .5s var(--t), box-shadow .5s var(--t);
+  }
+  .review:hover { transform: translateY(-5px); box-shadow: var(--shadow-card); }
+  .review .stars { color: var(--gold); letter-spacing: .1em; margin-bottom: 1rem; }
+  .review blockquote { margin: 0; color: rgba(246,240,230,0.86); line-height: 1.65; font-size: .96rem; }
+  .review figcaption { margin-top: 1.3rem; display: flex; align-items: center; gap: .8rem; }
+  .review .av { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 999px; background: rgba(201,162,74,0.2); color: var(--gold); font-family: var(--display); }
+  .review .who b { color: var(--ivory); display: block; line-height: 1.1; }
+  .review .who span { color: rgba(246,240,230,0.45); font-size: .76rem; }
+
+  /* ---------- contact ---------- */
+  .contact-grid { display: grid; gap: clamp(2.5rem, 6vw, 4rem); grid-template-columns: 1fr; }
+  @media (min-width: 1000px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+  .info-row { display: flex; gap: 1rem; align-items: flex-start; }
+  .info-row + .info-row { margin-top: 1.4rem; }
+  .info-row .ic { width: 40px; height: 40px; flex-shrink: 0; display: grid; place-items: center; border-radius: 12px; background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); }
+  .info-row .k { font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-mute); }
+  .info-row .v { color: var(--ink); font-weight: 500; }
+  .info-row .v.sm { font-weight: 400; color: var(--ink-soft); font-size: .9rem; }
+  .map-wrap { margin-top: 2rem; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-soft); }
+  .map-wrap iframe { width: 100%; height: 260px; border: 0; display: block; }
+
+  form.appt {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: clamp(1.5rem, 4vw, 2.3rem); box-shadow: var(--shadow-soft);
+  }
+  form.appt h3 { font-family: var(--display); font-size: 1.5rem; color: var(--ink); margin-bottom: .3rem; }
+  form.appt .fp { color: var(--ink-mute); font-size: .9rem; margin: 0 0 1.6rem; }
+  .field { margin-bottom: 1.2rem; }
+  .field label { display: block; font-size: .85rem; color: var(--ink-soft); margin-bottom: .45rem; }
+  .field input, .field select, .field textarea {
+    width: 100%; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink);
+    border-radius: 14px; padding: .85rem 1rem; font: inherit; transition: border-color .25s, box-shadow .25s;
+  }
+  .field textarea { resize: vertical; min-height: 110px; }
+  .field input::placeholder, .field textarea::placeholder { color: var(--ink-mute); opacity: .7; }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 30%, transparent);
+  }
+  .field.invalid input { border-color: var(--terracotta); }
+  form.appt .submit { width: 100%; margin-top: .6rem; }
+  form.appt .alt { text-align: center; font-size: .8rem; color: var(--ink-mute); margin-top: 1rem; }
+  form.appt .alt a { color: var(--accent); }
+
+  /* ---------- footer ---------- */
+  footer { background: var(--forestdeep); color: rgba(246,240,230,0.8); padding: clamp(3rem, 7vw, 4rem) 0 2.5rem; }
+  @media (prefers-color-scheme: dark) { footer { background: #0F140F; } }
+  .foot-grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; padding-bottom: 2.5rem; }
+  @media (min-width: 700px) { .foot-grid { grid-template-columns: 1.3fr 1fr 1fr; } }
+  .foot-grid h4 { font-family: var(--display); font-size: 1.1rem; color: var(--ivory); margin: 0 0 1rem; font-weight: 400; }
+  .foot-grid ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .55rem; font-size: .9rem; }
+  .foot-grid ul a, .foot-grid li { color: rgba(246,240,230,0.6); }
+  .foot-grid ul a:hover { color: var(--gold); }
+  .foot-brand .row { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+  .foot-brand .mark { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 999px; border: 1px solid rgba(201,162,74,0.6); color: var(--gold); }
+  .foot-brand .row .name { font-family: var(--display); font-size: 1.2rem; color: var(--ivory); }
+  .foot-brand p { color: rgba(246,240,230,0.55); font-size: .9rem; max-width: 22rem; margin: 0; }
+  .foot-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem; font-size: .76rem; color: rgba(246,240,230,0.45); margin-top: 1.6rem; }
+  .honesty { text-align: center; font-size: .7rem; color: rgba(246,240,230,0.38); margin: 1.6rem auto 0; max-width: 40rem; line-height: 1.6; }
+
+  /* ---------- whatsapp float ---------- */
+  .wa-float {
+    position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 90;
+    width: 56px; height: 56px; display: grid; place-items: center; border-radius: 999px;
+    background: #25D366; color: #fff; box-shadow: 0 12px 30px -12px rgba(37,211,102,0.7);
+    animation: wapulse 2.6s infinite; transition: transform .3s var(--t);
+  }
+  .wa-float:hover { transform: scale(1.06); }
+  @keyframes wapulse { 0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.45);} 50% { box-shadow: 0 0 0 14px rgba(37,211,102,0);} }
+  /* lift wa-float above mobile sticky bar */
+  @media (max-width: 767px) { .wa-float { bottom: calc(72px + 1rem); } }
+
+  /* ---------- STICKY MOBILE CTA BAR ---------- */
+  .mbar {
+    position: fixed; inset: auto 0 0 0; z-index: 95;
+    display: grid; grid-template-columns: 1fr 1fr; gap: .6rem;
+    padding: .7rem .8rem calc(.7rem + env(safe-area-inset-bottom));
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -10px 30px -20px rgba(0,0,0,0.5);
+  }
+  .mbar a {
+    display: inline-flex; align-items: center; justify-content: center; gap: .45rem;
+    padding: .85rem; border-radius: 14px; font-weight: 600; font-size: .92rem;
+    transition: transform .2s var(--t), filter .2s;
+  }
+  .mbar a:active { transform: scale(.97); filter: brightness(.96); }
+  .mbar .b-appt { background: var(--accent); color: var(--accent-ink); }
+  .mbar .b-wa { background: #25D366; color: #fff; }
+  @media (min-width: 768px) { .mbar { display: none; } }
+  @media (max-width: 767px) { body { padding-bottom: 0; } }
+
+  /* ---------- toast ---------- */
+  .toast {
+    position: fixed; right: 1.25rem; z-index: 110; bottom: 6rem;
+    opacity: 0; transform: translateY(12px); pointer-events: none;
+    transition: opacity .4s, transform .4s;
+  }
+  @media (max-width: 767px) { .toast { bottom: calc(72px + 4.5rem); } }
+  .toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .toast .inner {
+    background: var(--forest); color: var(--ivory); padding: 1rem 1.2rem; border-radius: 18px;
+    box-shadow: var(--shadow-card); border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+    display: flex; align-items: center; gap: .8rem; max-width: 20rem;
+  }
+  .toast .inner .ok { color: var(--gold); font-size: 1.1rem; }
+  .toast .inner p { margin: 0; font-size: .9rem; line-height: 1.45; }
+
+  /* ---------- reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    html.gsap-on .hero h1 .kin,
+    html.gsap-on [data-rise] { opacity: 1 !important; transform: none !important; }
+    .wa-float { animation: none; }
+    .scroll-hint .chev { animation: none; }
+    .btn::before { display: none; }
+    .card:hover, .tile:hover, .review:hover { transform: none; }
+    .card:hover .ico { transform: none; }
+    .tile:hover::before { transform: none; }
+    .tile:hover .photo { transform: none; }
+    /* kill all added decorative motion */
+    .petals { display: none; }
+    .petal { animation: none; }
+    .cursor-glow { display: none; }
+    .hero-parallax { transform: none !important; }
+    * { scroll-behavior: auto !important; }
+  }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">İçeriğe geç</a>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="#hero" class="brand" aria-label="ATÖLYE ana sayfa">
+        <span class="mark" aria-hidden="true">❀</span>
+        <span class="name">ATÖLYE <span class="dot">·</span> <span class="sub">Güzellik &amp; Gelin</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hizmetler" class="link-underline">Hizmetler</a></li>
+        <li><a href="#gelin" class="link-underline">Gelin Paketi</a></li>
+        <li><a href="#neden" class="link-underline">Neden Biz</a></li>
+        <li><a href="#galeri" class="link-underline">Galeri</a></li>
+        <li><a href="#yorumlar" class="link-underline">Yorumlar</a></li>
+        <li><a href="#iletisim" class="link-underline">İletişim</a></li>
+      </ul>
+
+      <a href="#iletisim" data-cta="randevu" class="btn nav-cta" style="padding:.7rem 1.3rem; font-size:.9rem;">Randevu Al <span aria-hidden="true">→</span></a>
+
+      <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mm">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- mobile menu -->
+  <div class="mm" id="mm">
+    <div class="mm-backdrop" id="mmBackdrop"></div>
+    <div class="mm-panel" id="mmPanel" role="dialog" aria-modal="true" aria-label="Menü">
+      <div class="mm-head">
+        <span class="font-display" style="font-size:1.15rem; color:var(--ink);">Menü</span>
+        <button class="mm-x" id="mmClose" aria-label="Menüyü kapat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <ul class="mm-list">
+        <li><a class="mm-link" href="#hizmetler">Hizmetler</a></li>
+        <li><a class="mm-link" href="#gelin">Gelin Paketi</a></li>
+        <li><a class="mm-link" href="#neden">Neden Biz</a></li>
+        <li><a class="mm-link" href="#galeri">Galeri</a></li>
+        <li><a class="mm-link" href="#yorumlar">Yorumlar</a></li>
+        <li><a class="mm-link" href="#iletisim">İletişim</a></li>
+      </ul>
+      <div class="mm-foot">
+        <a href="#iletisim" data-cta="randevu" class="btn mm-link" style="width:100%;">Randevu Al</a>
+        <a id="mmPhone" href="#" class="mm-link" style="display:block; text-align:center; margin-top:.9rem; color:var(--ink-soft); font-size:.9rem;"></a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+  <!-- ===================== HERO ===================== -->
+  <section id="hero" class="hero weave">
+    <!-- HERO MEDIA: real photo over gradient (gradient stays visible if img/hero.jpg is missing) -->
+    <div class="hero-media" aria-hidden="true">
+      <!-- parallax decor layer (slower than scroll, desktop only) -->
+      <div class="hero-parallax" id="heroParallax">
+        <div class="hero-photo"></div>
+      </div>
+      <div class="hero-scrim"></div>
+      <!-- süzülen petaller (petals injected by JS, desktop only, ≤10) -->
+      <div class="petals" id="petals"></div>
+      <!-- imleç-takip ışıltı (single radial glow, desktop only) -->
+      <div class="cursor-glow" id="cursorGlow"></div>
+    </div>
+
+    <svg class="arc" style="right:-6rem; top:-6rem; width:min(480px,60vw); height:min(480px,60vw); z-index:3;" viewBox="0 0 200 200" fill="none" stroke="currentColor" aria-hidden="true">
+      <circle cx="100" cy="100" r="96" stroke-width="0.6"/><circle cx="100" cy="100" r="72" stroke-width="0.6"/><circle cx="100" cy="100" r="48" stroke-width="0.6"/>
+    </svg>
+
+    <div class="wrap hero-inner">
+      <div class="hero-content">
+        <p class="eyebrow" data-rise><span class="bar"></span> Kadıköy · Güzellik &amp; Gelin Atölyesi</p>
+
+        <h1 aria-label="Özel gününüz, en güzel halinizle.">
+          <span class="kin">Özel</span> <span class="kin">gününüz,</span>
+          <span class="swash"><span class="kin">en</span> <span class="kin">güzel</span> <span class="kin">halinizle.</span></span>
+        </h1>
+
+        <p class="lead" data-rise>
+          Saçtan makyaja, gelin denemesinden o büyük güne kadar; sıcacık bir atölye atmosferinde,
+          size özel ilgiyle hazırlanırsınız. Telaş bizde, ışıltı sizde.
+        </p>
+
+        <div class="hero-cta" data-rise>
+          <a href="#iletisim" data-cta="randevu" class="btn">Randevu Al <span aria-hidden="true">→</span></a>
+          <a href="#gelin" class="btn btn-ghost">Gelin Paketini Keşfet</a>
+        </div>
+
+        <div class="trust" data-rise>
+          <span class="item"><span class="stars" aria-hidden="true">★★★★★</span> <b class="rate" id="heroRating"></b> Google puanı</span>
+          <span class="sep" aria-hidden="true"></span>
+          <span class="item">💍 Gelin denemesi + gün</span>
+          <span class="sep" aria-hidden="true"></span>
+          <span class="item">☕ Sıcak atölye, bire bir ilgi</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#proof" class="scroll-hint" aria-label="Aşağı kaydır">
+      Kaydır <span class="chev" aria-hidden="true">↓</span>
+    </a>
+  </section>
+
+  <!-- ===================== SOCIAL PROOF BAND (near hero) ===================== -->
+  <div class="wrap proof" id="proof">
+    <div class="proof-card" data-rise>
+      <div class="proof-item">
+        <div class="num"><span id="proofRating"></span> <span class="star" aria-hidden="true">★</span></div>
+        <div class="label">Google ortalaması</div>
+      </div>
+      <div class="proof-item">
+        <div class="num">120+</div>
+        <div class="label">Mutlu müşteri yorumu</div>
+      </div>
+      <div class="proof-item">
+        <div class="num">Deneme + Gün</div>
+        <div class="label">Gelin paketinde tek akış</div>
+      </div>
+      <div class="proof-item">
+        <div class="num">Kadıköy</div>
+        <div class="label">Ulaşımı kolay konum</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== HIZMETLER (bento) ===================== -->
+  <section id="hizmetler">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-rise><span class="bar"></span> Hizmetlerimiz</p>
+        <h2 class="h2" data-rise>Tepeden tırnağa, <span class="swash">özenle.</span></h2>
+        <p class="lead" data-rise style="margin-top:1.2rem;">
+          Her hizmette aynı niyet: kendinizi en iyi hissettiğiniz versiyonunuza dönüşmek. Fiyatlar
+          kişiye ve seçilen pakete göre değiştiği için netini WhatsApp'tan paylaşıyoruz.
+        </p>
+      </div>
+
+      <div class="bento">
+        <!-- Gelin paketi = bento feature (büyük) -->
+        <article class="card feature" data-rise>
+          <span class="badge">En Çok Tercih</span>
+          <div class="ico" aria-hidden="true">💍</div>
+          <h3>Gelin Paketi</h3>
+          <p>Deneme seansından düğün gününe; saç, makyaj, prova ve son dokunuşlar. Telaşsız, planlı, tamamen size özel bir süreç — o gün her şey yerli yerinde.</p>
+          <div class="gold-rule" style="margin-bottom:1rem;"></div>
+          <span class="price">Fiyat WhatsApp'tan →</span>
+        </article>
+
+        <!-- Saç + makyaj -->
+        <article class="card" data-rise>
+          <div class="ico" aria-hidden="true">✂️</div>
+          <h3>Saç &amp; Makyaj</h3>
+          <p>Davet, çekim ya da kendinizi şımartmak için; yüz hatlarınıza ve tarzınıza özel saç tasarımı ve makyaj.</p>
+          <div class="gold-rule" style="margin-bottom:1rem;"></div>
+          <span class="price">Fiyat WhatsApp'tan →</span>
+        </article>
+
+        <!-- Kalıcı makyaj -->
+        <article class="card" data-rise>
+          <div class="ico" aria-hidden="true">🖌️</div>
+          <h3>Kalıcı Makyaj</h3>
+          <p>Kaş, eyeliner ve dudak renklendirme. Doğal duran, yüzünüze yakışan; her sabah hazır uyanma rahatlığı.</p>
+          <div class="gold-rule" style="margin-bottom:1rem;"></div>
+          <span class="price">Fiyat WhatsApp'tan →</span>
+        </article>
+
+        <!-- İpek kirpik -->
+        <article class="card" data-rise>
+          <div class="ico" aria-hidden="true">👁️</div>
+          <h3>İpek Kirpik</h3>
+          <p>İnce uçlu, hafif ve doğal görünümlü kirpik uygulaması. Bakışlarınıza zahmetsiz bir derinlik.</p>
+          <div class="gold-rule" style="margin-bottom:1rem;"></div>
+          <span class="price">Fiyat WhatsApp'tan →</span>
+        </article>
+
+        <!-- Cilt bakımı -->
+        <article class="card" data-rise>
+          <div class="ico" aria-hidden="true">🌿</div>
+          <h3>Cilt Bakımı</h3>
+          <p>Cildinizi tanıyıp ona göre kurguladığımız bakımlar; nem, canlanma ve sağlıklı bir ışıltı için.</p>
+          <div class="gold-rule" style="margin-bottom:1rem;"></div>
+          <span class="price">Fiyat WhatsApp'tan →</span>
+        </article>
+
+        <!-- Manikür & pedikür = wide -->
+        <article class="card wide" data-rise>
+          <div class="ico" aria-hidden="true">💅</div>
+          <h3>Manikür &amp; Pedikür</h3>
+          <p>Bakımlı eller ve ayaklar; klasikten kalıcı ojeye, özenli ve hijyenik uygulama. Detaylar fark yaratır.</p>
+          <div class="gold-rule" style="margin-bottom:1rem;"></div>
+          <span class="price">Fiyat WhatsApp'tan →</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GELIN PAKETI (öne çıkan) ===================== -->
+  <section id="gelin" class="gelin-sec weave">
+    <svg class="arc" style="left:-5rem; bottom:0; width:min(360px,55vw); height:min(360px,55vw);" viewBox="0 0 200 200" fill="none" stroke="currentColor" aria-hidden="true">
+      <circle cx="100" cy="100" r="90" stroke-width="0.6"/><circle cx="100" cy="100" r="60" stroke-width="0.6"/>
+    </svg>
+
+    <div class="wrap gelin-grid">
+      <div>
+        <p class="eyebrow" data-rise><span class="bar"></span> Özel Gün</p>
+        <h2 class="h2" data-rise>Gelin Paketi — <span class="swash">denemeden güne, yanınızda.</span></h2>
+        <p class="gelin-lead" data-rise>
+          Düğün günü tek seferlik değil, bir süreçtir. Önce birlikte denemeyi yapıyor, beğendiğiniz
+          görünümü kayıt altına alıyoruz; o gün hiçbir sürprize yer kalmıyor. Sadece siz, en güzel halinizle.
+        </p>
+
+        <ul class="feat-list">
+          <li data-rise><span class="mk" aria-hidden="true">✦</span><div><b>Deneme Seansı</b><p>Saç ve makyajı önceden prova ediyor, ince ayarları birlikte yapıyoruz.</p></div></li>
+          <li data-rise><span class="mk" aria-hidden="true">✦</span><div><b>Düğün Günü Uygulaması</b><p>Planlı zamanlama, dokunuşlar ve gün boyu kalıcılık için ürün seçimi.</p></div></li>
+          <li data-rise><span class="mk" aria-hidden="true">✦</span><div><b>Çevreniz İçin Ek Hizmet</b><p>Anne, kardeş ve yakınlarınız için saç &amp; makyaj seçenekleri.</p></div></li>
+        </ul>
+
+        <div class="gelin-cta" data-rise>
+          <a href="#iletisim" data-cta="gelin" class="btn btn-gold">Gelin Randevusu Al <span aria-hidden="true">→</span></a>
+          <a id="gelinWa" href="#" class="btn btn-ghost">WhatsApp'tan Sor</a>
+        </div>
+      </div>
+
+      <div class="bridal" data-rise>
+        <div class="panel weave">
+          <div class="quote">
+            <div class="emoji" aria-hidden="true">💐</div>
+            <p>"O gün her şey yerli yerinde olsun diye varız."</p>
+          </div>
+        </div>
+        <div class="tag">
+          <div class="big">Deneme + Gün</div>
+          <div class="small">tek bir akışta planlanır</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NEDEN BIZ ===================== -->
+  <section id="neden" class="bg-alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-rise><span class="bar"></span> Neden ATÖLYE</p>
+        <h2 class="h2" data-rise>Bir salondan fazlası, <span class="swash">bir atölye.</span></h2>
+      </div>
+
+      <div class="quad">
+        <div class="card" data-rise>
+          <div class="emoji" aria-hidden="true">🤍</div>
+          <h3>Bire Bir İlgi</h3>
+          <p>Aynı anda kalabalık değil; randevunuz size ayrılır. Acele yok, telaş yok.</p>
+        </div>
+        <div class="card" data-rise>
+          <div class="emoji" aria-hidden="true">🎯</div>
+          <h3>Size Özel Tasarım</h3>
+          <p>Hazır kalıplar yerine yüz hatlarınıza ve tarzınıza göre kurgulanan görünüm.</p>
+        </div>
+        <div class="card" data-rise>
+          <div class="emoji" aria-hidden="true">🧼</div>
+          <h3>Hijyen Önceliği</h3>
+          <p>Tek kullanımlık malzeme ve titiz sterilizasyon; içiniz rahat olsun.</p>
+        </div>
+        <div class="card" data-rise>
+          <div class="emoji" aria-hidden="true">📍</div>
+          <h3>Kadıköy'ün Kalbinde</h3>
+          <p>Ulaşımı kolay, sıcak bir mekânda; gelmesi de keyifli, kalması da.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALERI ===================== -->
+  <section id="galeri">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div>
+          <p class="eyebrow" data-rise><span class="bar"></span> Galeri</p>
+          <h2 class="h2" data-rise>Çalışmalarımızdan <span class="swash">izler.</span></h2>
+        </div>
+        <p class="note" data-rise>Kareler gerçek fotoğraf bekliyor: <b>img/g1–g4.jpg</b> dosyalarını eklediğinizde otomatik oturur. Foto yokken zarif renk geçişleri görünür.</p>
+      </div>
+
+      <div class="gallery">
+        <div class="tile tile-1" data-rise><div class="photo" aria-hidden="true"></div><span>Gelin Makyajı</span></div>
+        <div class="tile tile-2" data-rise><div class="photo" aria-hidden="true"></div><span>Saç Tasarımı</span></div>
+        <div class="tile tile-3" data-rise><div class="photo" aria-hidden="true"></div><span>Kalıcı Makyaj</span></div>
+        <div class="tile tile-4" data-rise><div class="photo" aria-hidden="true"></div><span>İpek Kirpik</span></div>
+        <div class="tile tile-5" data-rise><span>Cilt Bakımı</span></div>
+        <div class="tile tile-6" data-rise><span>Manikür</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== YORUMLAR ===================== -->
+  <section id="yorumlar" class="reviews-sec weave">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-rise><span class="bar"></span> Yorumlar</p>
+        <h2 class="h2" data-rise>Misafirlerimizin <span class="swash">hissettikleri.</span></h2>
+        <p class="sub" data-rise>Aşağıdakiler örnek yorumlardır — yayına almadan önce gerçek Google / Instagram yorumlarınızla değiştirin.</p>
+      </div>
+      <div class="review-grid" id="reviewGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== ILETISIM ===================== -->
+  <section id="iletisim">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow" data-rise><span class="bar"></span> İletişim</p>
+        <h2 class="h2" data-rise>Hadi tanışalım. <span class="swash">Çay bizden.</span></h2>
+        <p class="lead" data-rise style="margin-top:1.2rem; max-width:30rem;">
+          Randevu, gelin denemesi veya merak ettiğiniz her şey için bize ulaşın. En hızlı yanıt WhatsApp'tan.
+        </p>
+
+        <div style="margin-top:2rem;">
+          <div class="info-row" data-rise>
+            <span class="ic" aria-hidden="true">📞</span>
+            <div><div class="k">Telefon</div><a id="infoPhone" href="#" class="v link-underline"></a></div>
+          </div>
+          <div class="info-row" data-rise>
+            <span class="ic" aria-hidden="true">📍</span>
+            <div><div class="k">Adres</div><p id="infoAddr" class="v" style="margin:.15rem 0 0;"></p></div>
+          </div>
+          <div class="info-row" data-rise>
+            <span class="ic" aria-hidden="true">🕒</span>
+            <div><div class="k">Çalışma Saatleri</div><p class="v" style="margin:.15rem 0 0;">Pzt–Cmt: 10:00 – 20:00</p><p class="v sm" style="margin:.1rem 0 0;">Pazar: 11:00 – 18:00</p></div>
+          </div>
+          <div class="info-row" data-rise>
+            <span class="ic" aria-hidden="true">📸</span>
+            <div><div class="k">Instagram</div><a id="infoIg" href="#" class="v link-underline"></a></div>
+          </div>
+        </div>
+
+        <div class="map-wrap" data-rise>
+          <iframe id="mapFrame" title="ATÖLYE Güzellik & Gelin konum haritası" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <div data-rise>
+        <form class="appt" id="contactForm" novalidate>
+          <h3>Randevu Talebi</h3>
+          <p class="fp">Formu doldurun, en kısa sürede sizi arayalım.</p>
+
+          <div class="field" id="fldName">
+            <label for="fName">Adınız Soyadınız</label>
+            <input id="fName" name="name" type="text" autocomplete="name" required placeholder="Örn. Elif Yılmaz" />
+          </div>
+          <div class="field" id="fldPhone">
+            <label for="fPhone">Telefon</label>
+            <input id="fPhone" name="phone" type="tel" autocomplete="tel" required placeholder="05__ ___ __ __" />
+          </div>
+          <div class="field">
+            <label for="fService">Hizmet</label>
+            <select id="fService" name="service">
+              <option>Gelin Paketi</option>
+              <option>Saç &amp; Makyaj</option>
+              <option>Kalıcı Makyaj</option>
+              <option>İpek Kirpik</option>
+              <option>Cilt Bakımı</option>
+              <option>Manikür &amp; Pedikür</option>
+              <option>Diğer / Emin değilim</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fMsg">Mesajınız</label>
+            <textarea id="fMsg" name="message" placeholder="Örn. Eylül'de düğünüm var, deneme için uygun günleri öğrenmek isterim."></textarea>
+          </div>
+
+          <button type="submit" class="btn submit">Randevu Talebini Gönder <span aria-hidden="true">→</span></button>
+          <p class="alt">Veya doğrudan <a id="formWa" href="#" class="link-underline">WhatsApp'tan yazın</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <div class="row">
+            <span class="mark" aria-hidden="true">❀</span>
+            <span class="name" id="footBrand"></span>
+          </div>
+          <p>Kadıköy'de sıcak lüks bir güzellik atölyesi. Özel gününüz ve her gününüz için.</p>
+        </div>
+        <div>
+          <h4>Hızlı Erişim</h4>
+          <ul>
+            <li><a href="#hizmetler">Hizmetler</a></li>
+            <li><a href="#gelin">Gelin Paketi</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>İletişim</h4>
+          <ul>
+            <li><a id="footPhone" href="#"></a></li>
+            <li><a id="footIg" href="#"></a></li>
+            <li id="footAddr"></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gold-rule"></div>
+      <div class="foot-bottom">
+        <p>© <span id="year"></span> ATÖLYE Güzellik &amp; Gelin. Tüm hakları saklıdır.</p>
+        <p>Tasarım &amp; geliştirme — tek dosya tanıtım önizlemesi.</p>
+      </div>
+      <p class="honesty">
+        Bu sayfa ATÖLYE Güzellik &amp; Gelin için hazırlanmış bir TANITIM ÖNİZLEMESİDİR — resmi site değildir.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===================== STICKY MOBILE CTA BAR ===================== -->
+  <nav class="mbar" aria-label="Hızlı işlemler">
+    <a href="#iletisim" data-cta="randevu" class="b-appt">Randevu Al</a>
+    <a id="mbarWa" href="#" class="b-wa" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.8 5.5 2.2 7.9L.4 31.6l7.9-2.1c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.2c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.3C2.7 8.6 8.6 2.7 16 2.7S29.3 8.6 29.3 16 23.4 28.7 16 28.7z"/></svg>
+      WhatsApp
+    </a>
+  </nav>
+
+  <!-- ===================== WHATSAPP FLOAT ===================== -->
+  <a id="waFloat" class="wa-float" href="#" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.8 5.5 2.2 7.9L.4 31.6l7.9-2.1c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.2c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.3C2.7 8.6 8.6 2.7 16 2.7S29.3 8.6 29.3 16 23.4 28.7 16 28.7zm7.3-9.4c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.6-.2.2-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.2 0-.5-.1-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.2 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.3 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.4-.3-.8-.5z"/></svg>
+  </a>
+
+  <!-- ===================== TOAST ===================== -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <div class="inner">
+      <span class="ok" aria-hidden="true">✓</span>
+      <p>Talebiniz alındı! En kısa sürede sizi arayacağız. 💐</p>
+    </div>
+  </div>
+
+  <!-- ===================== LIBS (deferred) ===================== -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <script>
+  // === BURAYI DEGISTIR: gercek salon bilgileriyle 60 saniyede kisisellestir ===
+  const SALON = {
+    ad: 'ATÖLYE Güzellik & Gelin',
+    tagline: 'Özel gününüz, en güzel halinizle.',
+    telefon: '+90 5__ ___ __ __',            // placeholder — gerçek numarayı yaz
+    whatsapp: '905XXXXXXXXX',                 // placeholder — ülke kodlu, boşluksuz (905...)
+    adres: 'Caferağa Mah. (örnek adres), Kadıköy/İstanbul',
+    instagram: '@atolyeguzellikgelin',
+    mapsQuery: 'Moda, Kadıköy',
+    googlePuani: '4.9'
+  };
+
+  // ornek yorumlar — gercegiyle degistir (gerçek Google/Instagram yorumları)
+  const YORUMLAR = [
+    { ad: 'Elif K.', etiket: 'Gelin Paketi', metin: 'Deneme seansından düğün gününe kadar tek bir telaş yaşamadım. Sabah gelip akşam prensesler gibi çıktım.' },
+    { ad: 'Selin A.', etiket: 'Saç & Makyaj', metin: 'Yüzüme bu kadar yakışan bir makyajı ilk kez gördüm. Abartısız, doğal ve gün boyu hiç bozulmadı.' },
+    { ad: 'Merve T.', etiket: 'Kalıcı Makyaj', metin: 'Kaşlarım çok doğal duruyor, kimse kalıcı olduğunu anlamıyor. Sabahları artık çok rahatım.' },
+    { ad: 'Zeynep D.', etiket: 'İpek Kirpik', metin: 'Hafif ve doğal; göz teması kuran herkes fark ediyor. Uygulama sırasında da çok rahattım.' },
+    { ad: 'Ayşe B.', etiket: 'Cilt Bakımı', metin: 'Cildim aylardır bu kadar canlı görünmemişti. Bana özel kurulan bir bakım olması çok değerliydi.' },
+    { ad: 'Gizem O.', etiket: 'Manikür', metin: 'Hijyene verdikleri önem ve detaycılık beni geri getiriyor. Eller kusursuz, ortam çok huzurlu.' }
+  ];
+
+  // ---- inject CONFIG into DOM ----
+  (function () {
+    const wa = (SALON.whatsapp || '').replace(/[^0-9]/g, '');
+    const waMsg = encodeURIComponent('Merhaba, ' + SALON.ad + ' için randevu almak istiyorum.');
+    const waUrl = 'https://wa.me/' + wa + '?text=' + waMsg;
+
+    const set = (id, fn) => { const el = document.getElementById(id); if (el) fn(el); };
+    const phoneHref = 'tel:' + SALON.telefon.replace(/\s/g, '');
+
+    set('heroRating', el => el.textContent = SALON.googlePuani);
+    set('proofRating', el => el.textContent = SALON.googlePuani);
+    set('footBrand', el => el.textContent = SALON.ad);
+    set('year', el => el.textContent = new Date().getFullYear());
+
+    set('infoPhone', el => { el.textContent = SALON.telefon; el.href = phoneHref; });
+    set('footPhone', el => { el.textContent = SALON.telefon; el.href = phoneHref; });
+    set('mmPhone', el => { el.textContent = SALON.telefon; el.href = phoneHref; });
+    set('infoAddr', el => el.textContent = SALON.adres);
+    set('footAddr', el => el.textContent = SALON.adres);
+
+    const igHandle = SALON.instagram.replace('@', '');
+    const igUrl = 'https://instagram.com/' + igHandle;
+    set('infoIg', el => { el.textContent = SALON.instagram; el.href = igUrl; el.target = '_blank'; el.rel = 'noopener'; });
+    set('footIg', el => { el.textContent = SALON.instagram; el.href = igUrl; el.target = '_blank'; el.rel = 'noopener'; });
+
+    set('waFloat', el => el.href = waUrl);
+    set('mbarWa', el => el.href = waUrl);
+    set('gelinWa', el => { el.href = waUrl; el.target = '_blank'; el.rel = 'noopener'; });
+    set('formWa', el => { el.href = waUrl; el.target = '_blank'; el.rel = 'noopener'; });
+
+    set('mapFrame', el => el.src = 'https://www.google.com/maps?q=' + encodeURIComponent(SALON.mapsQuery + ', İstanbul') + '&output=embed');
+
+    const grid = document.getElementById('reviewGrid');
+    if (grid) {
+      grid.innerHTML = YORUMLAR.map(r => `
+        <figure class="review" data-rise>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <blockquote>"${r.metin}"</blockquote>
+          <figcaption>
+            <span class="av" aria-hidden="true">${r.ad.charAt(0)}</span>
+            <span class="who"><b>${r.ad}</b><span>${r.etiket}</span></span>
+          </figcaption>
+        </figure>`).join('');
+    }
+  })();
+
+  // ---- mobile menu ----
+  (function () {
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('mm');
+    const panel = document.getElementById('mmPanel');
+    const closeBtn = document.getElementById('mmClose');
+    const backdrop = document.getElementById('mmBackdrop');
+    if (!burger) return;
+
+    const open = () => { menu.classList.add('open'); burger.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; };
+    const close = () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+
+    burger.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    backdrop.addEventListener('click', close);
+    document.querySelectorAll('.mm-link').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) close(); });
+  })();
+
+  // ---- sticky navbar transparent -> solid ----
+  (function () {
+    const nav = document.getElementById('nav');
+    const onScroll = () => { nav.classList.toggle('solid', window.scrollY > 40); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // ---- contact form (NO real backend) ----
+  (function () {
+    const form = document.getElementById('contactForm');
+    const toast = document.getElementById('toast');
+    if (!form) return;
+    const nameF = document.getElementById('fldName');
+    const phoneF = document.getElementById('fldPhone');
+    document.getElementById('fName').addEventListener('input', () => nameF.classList.remove('invalid'));
+    document.getElementById('fPhone').addEventListener('input', () => phoneF.classList.remove('invalid'));
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('fName');
+      const phone = document.getElementById('fPhone');
+      let bad = false;
+      if (!name.value.trim()) { nameF.classList.add('invalid'); bad = true; }
+      if (!phone.value.trim()) { phoneF.classList.add('invalid'); bad = true; }
+      if (bad) return;
+      // operator: Formspree veya WhatsApp'a bagla — su an hicbir yere POST etmiyoruz.
+      toast.classList.add('show');
+      form.reset();
+      setTimeout(() => toast.classList.remove('show'), 4200);
+    });
+  })();
+
+  // ---- DECOR: petals + cursor glow (DESKTOP ONLY, reduced-motion safe, GSAP-independent) ----
+  (function () {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isDesktop = window.matchMedia('(pointer:fine) and (hover:hover)').matches;
+    if (reduce || !isDesktop) return; // mobile = native scroll, battery friendly; reduced-motion = no decor
+
+    // -- süzülen petaller (≤10, transform/opacity only via CSS animation) --
+    const wrap = document.getElementById('petals');
+    if (wrap) {
+      const COUNT = 9;
+      const kinds = ['p-ivory', 'p-gold', 'p-terra', '', 'p-gold', 'p-ivory', '', 'p-terra', 'p-gold'];
+      for (let i = 0; i < COUNT; i++) {
+        const p = document.createElement('span');
+        p.className = 'petal ' + kinds[i % kinds.length];
+        const size = 9 + Math.random() * 10;             // 9–19px
+        p.style.left = (4 + Math.random() * 92) + '%';
+        p.style.width = size + 'px';
+        p.style.height = (size * 0.86) + 'px';
+        p.style.animationDuration = (13 + Math.random() * 9) + 's'; // slow, 13–22s
+        p.style.animationDelay = (-Math.random() * 22) + 's';       // pre-stagger so they're spread out
+        wrap.appendChild(p);
+      }
+    }
+
+    // -- imleç-takip ışıltı (single element, rAF-throttled pointermove, transform only) --
+    const hero = document.getElementById('hero');
+    const glow = document.getElementById('cursorGlow');
+    if (hero && glow) {
+      let tx = 0, ty = 0, ticking = false;
+      const move = () => {
+        glow.style.transform = 'translate3d(' + tx + 'px,' + ty + 'px,0)';
+        ticking = false;
+      };
+      hero.addEventListener('pointermove', e => {
+        const r = hero.getBoundingClientRect();
+        tx = e.clientX - r.left;
+        ty = e.clientY - r.top;
+        if (!ticking) { ticking = true; requestAnimationFrame(move); }
+      }, { passive: true });
+      hero.addEventListener('pointerenter', () => hero.classList.add('glow-live'));
+      hero.addEventListener('pointerleave', () => hero.classList.remove('glow-live'));
+    }
+
+    // -- pause petals when hero scrolls out of view (CPU/battery saver) --
+    if (hero && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        hero.classList.toggle('decor-idle', !entries[0].isIntersecting);
+      }, { threshold: 0 });
+      io.observe(hero);
+    }
+  })();
+
+  // ---- Lenis (DESKTOP ONLY) + GSAP reveals (reduced-motion safe, single RAF) ----
+  window.addEventListener('load', function () {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return; // content stays visible
+
+    document.documentElement.classList.add('gsap-on');
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
+
+    // Lenis ONLY on true desktop pointers (fine + hover); native scroll on touch/mobile
+    const isDesktop = window.matchMedia('(pointer:fine) and (hover:hover)').matches;
+    if (isDesktop && typeof Lenis !== 'undefined') {
+      const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+      // single RAF loop (canonical) — no double RAF
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(t => lenis.raf(t * 1000));
+      gsap.ticker.lagSmoothing(0);
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const id = a.getAttribute('href');
+          if (id.length > 1) { const t = document.querySelector(id); if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -64 }); } }
+        });
+      });
+    }
+
+    // HERO PARALLAX (desktop only) — decor layer scrolls slower (transform translate3d, scrubbed)
+    if (window.matchMedia('(pointer:fine) and (hover:hover)').matches) {
+      const layer = document.getElementById('heroParallax');
+      if (layer) {
+        gsap.to(layer, {
+          yPercent: 16,            // moves slower than scroll → parallax depth
+          ease: 'none',
+          scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.6 }
+        });
+      }
+    }
+
+    // hero kinetic stagger (transform/opacity only)
+    gsap.to('.hero h1 .kin', { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out', stagger: 0.06, delay: 0.15 });
+    gsap.to('.hero [data-rise]', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.1, delay: 0.35 });
+
+    // batched section reveals (keeps active triggers low; transform/opacity only)
+    ScrollTrigger.batch('[data-rise]:not(.hero [data-rise])', {
+      start: 'top 88%',
+      once: true,
+      fastScrollEnd: true,
+      onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.08 })
+    });
+
+    // recalc after fonts/images settle (we are already inside the load handler)
+    ScrollTrigger.refresh();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => ScrollTrigger.refresh());
+    }
+  });
+  </script>
+</body>
+</html>
